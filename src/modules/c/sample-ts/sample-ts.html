@@ -1,3 +1,54 @@
 <template>
-    <h1>Sample LWC - TS</h1>
+    <div
+        class={animationClass}
+        style="text-align: center"
+    >
+        <span class="greet">Hello {name}</span>
+    </div>
+    <hr />
+    <article class="slds-card slds-m-around_medium">
+        <div class="slds-grid slds-einstein-header slds-card__header">
+            <header
+                class="slds-media slds-media_center slds-has-flexi-truncate"
+            >
+                <div
+                    class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3"
+                >
+                    <div class="slds-media__body">
+                        <h2 class="slds-truncate" title="Einstein (10+)">
+                            <a
+                                href="#"
+                                class="slds-card__header-link"
+                                title="Einstein (10+)"
+                            >
+                                <span class="slds-text-heading_small"
+                                    >Einstein (10+)</span
+                                >
+                            </a>
+                        </h2>
+                    </div>
+                </div>
+                <div
+                    class="slds-einstein-header__figure slds-size_1-of-4 slds-medium-size_1-of-3"
+                ></div>
+            </header>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">Card Body</div>
+        <footer class="slds-card__footer">
+            <a class="slds-card__footer-action" href="#"
+                >View All
+                <span class="slds-assistive-text"
+                    >Einstein Recommendations</span
+                >
+            </a>
+        </footer>
+    </article>
+
+    <hr />
+    <button
+        class="slds-button slds-button_brand slds-m-around_medium"
+        onclick={fireEvent}
+    >
+        Send event to Angular
+    </button>
 </template>

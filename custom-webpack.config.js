@@ -2,10 +2,17 @@ const webpack = require("webpack");
 const { merge } = require("webpack-merge");
 const path = require("path");
 const fs = require("fs");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const LwcWebpackPlugin = require("lwc-webpack-plugin");
 const lwc_root = "./src";
 const module_dir = path.resolve(process.cwd(), lwc_root, "modules");
 //const { LwcModuleResolverPlugin } = require("lwc-webpack-plugin/dist/module-resolver");
+
+const resources = [
+  {from: path.resolve(process.cwd(), 'node_modules/@salesforce-ux/design-system/assets/icons'), to: path.join(process.cwd(), 'dist/slds/assets/icons')},
+  {from: path.resolve(process.cwd(), 'node_modules/@salesforce-ux/design-system/assets/images'), to: path.join(process.cwd(), 'dist/slds/assets/images')},
+  {from: path.resolve(process.cwd(), 'node_modules/@salesforce-ux/design-system/assets/styles'), to: path.join(process.cwd(), 'dist/slds/assets/styles')}
+];
 
 module.exports = function (angularConfig) {
   const lwcConfig = {
@@ -29,7 +36,8 @@ module.exports = function (angularConfig) {
             },
           });
         },
-      }
+      },
+      ...resources.length ? [new CopyWebpackPlugin({patterns: resources})] : []
     ],
     /*
     module: {

@@ -34,7 +34,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/styles/salesforce-lightning-design-system.min.css"
             ]
           },
           "configurations": {
